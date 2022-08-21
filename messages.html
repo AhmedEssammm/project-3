@@ -1,0 +1,182 @@
+<html>
+    <head>
+        <!-- Stylesheet -->
+        <link rel="stylesheet" href="css/style.css">
+        <!-- Icons -->
+        <link rel="stylesheet" href="css/all.min.css">
+    </head>
+    <body>
+        <div class="messages-container">
+            <aside>
+                <div class="top">
+                    <div class="logo">
+                        <img src="images/logo.png" alt="logo">
+                        <h2>EDU<span class="danger">CATION</span></h2>
+                    </div>
+                    <div class="close" id="close-btn">
+                        <i class="fa-solid fa-xmark"></i>
+                    </div>
+                </div>
+                <div class="sidebar">
+                    <a href="index.html"><i class="fa-solid fa-border-all"></i><h3>Dashboard</h3></a>
+                    <a href="students.html"><i class="fa-solid fa-user-graduate"></i><h3>Students</h3></a>
+                    <a href="teachers.html"><i class="fa-solid fa-user-tie"></i><h3>Teachers</h3></a>
+                    <a href="courses.html"><i class="fa-solid fa-book"></i><h3>Courses</h3></a>
+                    <a href="messages.html" class="active"><i class="fa-solid fa-envelope"></i><h3>Messages</h3></a>
+                    <a href="addStudent.html"><i class="fa-solid fa-plus"></i><h3>Add Student</h3></a>
+                    <a href="logOut.html"><i class="fa-solid fa-arrow-right-from-bracket"></i><h3>Log out</h3></a>
+                </div>
+            </aside>
+            <!-- -------------------- END OF ASIDE -------------------- -->
+            <main>
+                <div class="messages-top">
+                    <h1>Messages</h1>
+                    <div class="messages-right">
+                        <div class="top">
+                            <button id="menu-btn"><i class="fa-solid fa-bars"></i></button>
+                            <div class="theme-toggler">
+                                <label class="theme-switch" for="checkbox">
+                                    <input type="checkbox" id="checkbox"/>
+                                    <i class="fa-solid fa-sun active"></i>
+                                    <i class="fa-solid fa-moon"></i>
+                                </label>
+                            </div>
+                            <div class="profile">
+                                <div class="info">
+                                    <p>Hey, <b>Ahmed</b></p>
+                                    <small class="text-muted">Admin</small>
+                                </div>
+                                <div class="profile-photo">
+                                    <img src="images/profile-1.jpg" alt="profile-photo">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- -------------------- END OF TOP -------------------- -->
+                    </div>
+                </div>
+                <div class="messages">
+                    <h2>New Messages</h2>
+                    <div class="new-messages" id="messages">
+                        <div class="new-message">
+                            <p>from: <b>Mike Tyson</b></p>
+                            <p>Requested to change Software course time.</p>
+                            <small class="text-muted">2 Minutes Ago</small>
+                            <div class="messages-buttons">
+                                <button onclick="markAsRead(this.id)" class="read" id="0"><i class="fa-solid fa-envelope"></i> Mark as read</button>
+                                <button onclick="markAsUnread(this.id)" class="opened" id="0"><i class="fa-solid fa-envelope-open"></i> Read</button>
+                                <button onclick="deleteMessage(this.id)" class="delete" id="0"><i class="fa-solid fa-trash"></i> Delete</button>
+                            </div>
+                        </div>
+                        <div class="new-message">
+                            <p>from: <b>Diana Ayi</b></p>
+                            <p>Requested to change her schedule.</p>
+                            <small class="text-muted">5 Minutes Ago</small>
+                            <div class="messages-buttons">
+                                <button onclick="markAsRead(this.id)" class="read" id="1"><i class="fa-solid fa-envelope"></i> Mark as read</button>
+                                <button onclick="markAsUnread(this.id)" class="opened" id="1"><i class="fa-solid fa-envelope-open"></i> Read</button>
+                                <button onclick="deleteMessage(this.id)" class="delete" id="1"><i class="fa-solid fa-trash"></i> Delete</button>
+                            </div>
+                        </div>
+                        <div class="new-message">
+                            <p>from: <b>Mandy Roy</b></p>
+                            <p>Requested to check her GPA.</p>
+                            <small class="text-muted">6 Minutes Ago</small>
+                            <div class="messages-buttons">
+                                <button onclick="markAsRead(this.id)" class="read" id="2"><i class="fa-solid fa-envelope"></i> Mark as read</button>
+                                <button onclick="markAsUnread(this.id)" class="opened" id="2"><i class="fa-solid fa-envelope-open"></i> Read</button>
+                                <button onclick="deleteMessage(this.id)" class="delete" id="2"><i class="fa-solid fa-trash"></i> Delete</button>
+                            </div>
+                        </div>
+                        <div class="new-message">
+                            <p>from: <b>Aarron Bowers</b></p>
+                            <p>Requested to change his group.</p>
+                            <small class="text-muted">14 Minutes Ago</small>
+                            <div class="messages-buttons">
+                                <button onclick="markAsRead(this.id)" class="read" id="3"><i class="fa-solid fa-envelope"></i> Mark as read</button>
+                                <button onclick="markAsUnread(this.id)" class="opened" id="3"><i class="fa-solid fa-envelope-open"></i> Read</button>
+                                <button onclick="deleteMessage(this.id)" class="delete" id="3"><i class="fa-solid fa-trash"></i> Delete</button>
+                            </div>
+                        </div>
+                        <div class="new-message">
+                            <p>from: <b>Andy Slater</b></p>
+                            <p>Requested to change the deadline of the project.</p>
+                            <small class="text-muted">27 Minutes Ago</small>
+                            <div class="messages-buttons">
+                                <button onclick="markAsRead(this.id)" class="read" id="4"><i class="fa-solid fa-envelope"></i> Mark as read</button>
+                                <button onclick="markAsUnread(this.id)" class="opened" id="4"><i class="fa-solid fa-envelope-open"></i> Read</button>
+                                <button onclick="deleteMessage(this.id)" class="delete" id="4"><i class="fa-solid fa-trash"></i> Delete</button>
+                            </div>
+                        </div>
+                        <div class="new-message">
+                            <p>from: <b>Jesus Yu</b></p>
+                            <p>Requested to change the electronics schedule.</p>
+                            <small class="text-muted">36 Minutes Ago</small>
+                            <div class="messages-buttons">
+                                <button onclick="markAsRead(this.id)" class="read" id="5"><i class="fa-solid fa-envelope"></i> Mark as read</button>
+                                <button onclick="markAsUnread(this.id)" class="opened" id="5"><i class="fa-solid fa-envelope-open"></i> Read</button>
+                                <button onclick="deleteMessage(this.id)" class="delete" id="5"><i class="fa-solid fa-trash"></i> Delete</button>
+                            </div>
+                        </div>
+                        <div class="new-message">
+                            <p>from: <b>Danielle Adamson</b></p>
+                            <p>Requested to change the Management course time.</p>
+                            <small class="text-muted">48 Minutes Ago</small>
+                            <div class="messages-buttons">
+                                <button onclick="markAsRead(this.id)" class="read" id="6"><i class="fa-solid fa-envelope"></i> Mark as read</button>
+                                <button onclick="markAsUnread(this.id)" class="opened" id="6"><i class="fa-solid fa-envelope-open"></i> Read</button>
+                                <button onclick="deleteMessage(this.id)" class="delete" id="6"><i class="fa-solid fa-trash"></i> Delete</button>
+                            </div>
+                        </div>
+                        <div class="new-message">
+                            <p>from: <b>Shaurya Thomson</b></p>
+                            <p>Requested to change the project group.</p>
+                            <small class="text-muted">59 Minutes Ago</small>
+                            <div class="messages-buttons">
+                                <button onclick="markAsRead(this.id)" class="read" id="7"><i class="fa-solid fa-envelope"></i> Mark as read</button>
+                                <button onclick="markAsUnread(this.id)" class="opened" id="7"><i class="fa-solid fa-envelope-open"></i> Read</button>
+                                <button onclick="deleteMessage(this.id)" class="delete" id="7"><i class="fa-solid fa-trash"></i> Delete</button>
+                            </div>
+                        </div>
+                        <div class="new-message">
+                            <p>from: <b>Lula Horn</b></p>
+                            <p>Requested to change her appointment time.</p>
+                            <small class="text-muted">1 Hour Ago</small>
+                            <div class="messages-buttons">
+                                <button onclick="markAsRead(this.id)" class="read" id="8"><i class="fa-solid fa-envelope"></i> Mark as read</button>
+                                <button onclick="markAsUnread(this.id)" class="opened" id="8"><i class="fa-solid fa-envelope-open"></i> Read</button>
+                                <button onclick="deleteMessage(this.id)" class="delete" id="8"><i class="fa-solid fa-trash"></i> Delete</button>
+                            </div>
+                        </div>
+                        <div class="new-message">
+                            <p>from: <b>Jenny Mcknight</b></p>
+                            <p>Requested to join summer course.</p>
+                            <small class="text-muted">1 Hour Minutes Ago</small>
+                            <div class="messages-buttons">
+                                <button onclick="markAsRead(this.id)" class="read" id="9"><i class="fa-solid fa-envelope"></i> Mark as read</button>
+                                <button onclick="markAsUnread(this.id)" class="opened" id="9"><i class="fa-solid fa-envelope-open"></i> Read</button>
+                                <button onclick="deleteMessage(this.id)" class="delete" id="9"><i class="fa-solid fa-trash"></i> Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p id="noMessage"></p>
+                
+            </main>
+            <!-- -------------------- END OF MAIN -------------------- -->
+        </div>
+        <div class="delete-box">
+            <div class="delete-bg"></div>
+            <div class="delete-container">
+                <div class="delete-card">
+                    <p>Are you sure you want to delete this message?</p>
+                    <div class="delete-buttons">
+                        <button onclick="deleteMessage(this.id)" class="delete-btn" id="message-delete">Delete</button>
+                        <button onclick="hideDeleteBox()" class="cancel-btn">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="js/script.js"></script>
+    </body>
+</html>

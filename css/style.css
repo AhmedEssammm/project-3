@@ -1,0 +1,3416 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* -------------------- ROOT VARIABLES -------------------- */
+:root {
+    --color-primary: #7380ec;
+    --color-danger: #ff7782;
+    --color-success: #41f1b6;
+    --color-warning: #ffbb55;
+    --color-white: #fff;
+    --color-info-dark: #7d8da1;
+    --color-info-light: #dce1eb;
+    --color-dark: #363949;
+    --color-light: rgba(132, 139, 200, 0.18);
+    --color-primary-variant: #111e88;
+    --color-dark-variant: #677483;
+    --color-background: #f6f6f9;
+
+    --card-border-radius: 2rem;
+    --border-radius-1: 0.4rem;
+    --border-radius-2: 0.8rem;
+    --border-radius-3: 1.2rem;
+
+    --card-padding: 1.8rem;
+    --padding-1: 1.2rem;
+
+    --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+/* ==================== DARK THEME VARIABLES ==================== */
+html[data-theme="dark"] {
+    --color-background: #181a1e;
+    --color-white: #202528;
+    --color-dark: #edeffd;
+    --color-dark-variant: #a3bdcc;
+    --color-light: rgba(0, 0, 0, 0.4);
+    --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    appearance: none;
+    border: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 14px;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    font-family: poppins, sans-serif;
+    font-size: 0.88rem;
+    background-color: var(--color-background);
+    user-select: none;
+    overflow-x: hidden;
+    color: var(--color-dark)
+}
+
+.container {
+    display: grid;
+    width: 96%;
+    margin: 0 auto;
+    gap: 1.8rem;
+    grid-template-columns: 14rem auto 23rem;
+}
+
+a {
+    color: var(--color-dark);
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+h1 {
+    font-weight: 800;
+    font-size: 1.8rem;
+}
+
+h2 {
+    font-size: 1.4rem;
+}
+
+h3 {
+    font-size: 0.87rem;
+}
+
+h4 {
+    font-size: 0.8rem;
+}
+
+h5 {
+    font-size: 0.77rem;
+}
+
+small {
+    font-size: 0.75rem;
+}
+
+.profile-photo {
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.text-muted {
+    color: var(--color-info-dark);
+}
+
+p {
+    color: var(--color-dark-variant);
+}
+
+b {
+    color: var(--color-dark);
+}
+
+.primary {
+    color: var(--color-primary);
+}
+
+.danger {
+    color: var(--color-danger);
+}
+
+.success {
+    color: var(--color-success);
+}
+
+.warning {
+    color: var(--color-warning);
+}
+
+aside {
+    height: 100vh;
+    position: sticky;
+    top: 0;
+}
+
+aside .top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1.4rem;
+}
+
+aside .logo {
+    display: flex;
+    gap: 0.8rem;
+}
+
+aside .logo img {
+    width: 2rem;
+    height: 2rem;
+}
+
+aside .close {
+    display: none;
+    font-size: 2rem;
+}
+
+/* ==================== SIDEBAR ==================== */
+aside .sidebar {
+    display: flex;
+    flex-direction: column;
+    height: 86vh;
+    position: relative;
+    top: 3rem;
+}
+
+aside h3 {
+    font-weight: 500;
+}
+
+aside .sidebar a {
+    display: flex;
+    color: var(--color-info-dark);
+    margin-left: 2rem;
+    gap: 1rem;
+    align-items: center;
+    position: relative;
+    height: 3.7rem;
+    transition: all 300ms ease;
+}
+
+aside .sidebar a:last-child {
+    position: absolute;
+    bottom: 2rem;
+    width: 100%;
+}
+
+aside .sidebar a i {
+    font-size: 1.6rem;
+    transition: all 300ms ease;
+}
+
+aside .sidebar a.active {
+    background: var(--color-light);
+    color: var(--color-primary);
+    margin-left: 0;
+}
+
+aside .sidebar a.active i {
+    color: var(--color-primary);
+    margin-left: calc(1rem - 6px);
+}
+
+aside .sidebar a.active::before {
+    content: "";
+    width: 6px;
+    height: 100%;
+    background: var(--color-primary);
+}
+
+aside .sidebar a:hover {
+    color: var(--color-primary);
+}
+
+aside .sidebar a:hover:last-child {
+    color: var(--color-danger);
+}
+
+aside .sidebar a:hover i {
+    margin-left: 1rem;
+}
+
+/* aside .sidebar .messages-count {
+    background: var(--color-danger);
+    color: var(--color-white);
+    border-radius: var(--border-radius-1);
+    padding: 0.2rem;
+    margin-left: 10px;
+    font-size: 0.5rem;
+} */
+
+/* ==================== MAIN ==================== */
+main {
+    margin-top: 1.4rem;
+}
+
+main .insights {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.6rem;
+}
+
+main .insights > div {
+    background-color: var(--color-white);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    margin-top: 1rem;
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+}
+
+main .insights > div:hover {
+    box-shadow: none;
+}
+
+main .insights > div .icon {
+    background: var(--color-danger);
+    padding: 0.8rem;
+    border-radius: 50%;
+    color: var(--color-white);
+    font-size: 2rem;
+    width: 3.5rem;
+}
+
+main .insights > div:first-child .icon {
+    background-color: var(--color-primary);
+}
+
+main .insights > div:last-child .icon {
+    background-color: var(--color-success);
+}
+
+main .insights > div .middle  {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+main .insights h3 {
+    margin: 1rem 0 0.6rem;
+    font-size: 1rem;
+}
+
+main .insights .progress {
+    position: relative;
+    width: 92px;
+    height: 92px;
+    border-radius: 50%;
+}
+
+main .insights svg {
+    width: 7rem;
+    height: 7rem;
+}
+
+main .insights svg circle {
+    fill: none;
+    stroke: var(--color-primary);
+    stroke-width: 14;
+    stroke-linecap: round;
+    transform: translate(5px, 5px);
+}
+
+main .insights .students svg circle {
+    stroke-dasharray: 200;
+    stroke-dashoffset: -30;
+}
+
+main .insights .teachers svg circle {
+    stroke-dasharray: 80;
+    stroke-dashoffset: 15;
+}
+
+main .insights .courses svg circle {
+    stroke-dasharray: 110;
+    stroke-dashoffset: 35;
+}
+
+main .insights .progress .number {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main .insights small {
+    margin-top: 1.3rem;
+    display: block;
+}
+
+/* ==================== RECENT STUDENTS ==================== */
+main .recent-students {
+    margin-top: 2rem;
+}
+
+main .recent-students h2 {
+    margin-bottom: 0.8rem;
+}
+
+main .recent-students table {
+    background: var(--color-white);
+    width: 100%;
+    border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+}
+
+main .recent-students table:hover {
+    box-shadow: none;
+}
+
+main .recent-students table tbody td {
+    height: 2.8rem;
+    border-bottom: 1px solid var(--color-light);
+    color: var(--color-dark-variant);
+}
+
+main .recent-students table tbody .success {
+    color: var(--color-success);
+}
+
+main .recent-students table tbody .danger {
+    color: var(--color-danger);
+}
+
+main .recent-students table tbody .primary a {
+    color: var(--color-primary);
+}
+
+main .recent-students table tbody tr:last-child td {
+    border: none;
+}
+
+main .recent-students .details-btn {
+    color: var(--color-primary);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+main .recent-students .show-all {
+    text-align: center;
+    display: block;
+    margin: 1rem auto;
+    color: var(--color-primary);
+}
+
+/* ==================== RIGHT ==================== */
+.right {
+    margin-top: 1.4rem;
+}
+
+.right .top {
+    display: flex;
+    justify-content: end;
+    gap: 2rem;
+}
+
+.right .top button {
+    display: none;
+}
+
+.right .theme-toggler {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 1.6rem;
+    width: 4.2rem;
+    cursor: pointer;
+    border-radius: var(--border-radius-1);
+}
+
+.right .theme-toggler .theme-switch {
+    background: var(--color-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 1.6rem;
+    width: 4.2rem;
+    cursor: pointer;
+    border-radius: var(--border-radius-1);
+}
+
+.right .theme-toggler .theme-switch i {
+    font-size: 1.2rem;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.right .theme-toggler .theme-switch i.active {
+    background: var(--color-primary);
+    color: var(--color-white);
+    border-radius: var(--border-radius-1);
+}
+
+.right .top .profile {
+    display: flex;
+    gap: 2rem;
+    text-align: right;
+}
+
+/* ==================== RECENT UPDATES ==================== */
+.right .recent-updates {
+    margin-top: 1rem;
+}
+
+.right .recent-updates h2 {
+    margin-bottom: 0.8rem;
+}
+
+.right .recent-updates .updates {
+    background: var(--color-white);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+}
+
+.right .recent-updates .updates:hover {
+    box-shadow: none;
+}
+
+.right .recent-updates .updates .update {
+    display: grid;
+    grid-template-columns: 2.6rem auto;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* ==================== COURSES UPDATES ==================== */
+.right .courses-analytics {
+    margin-top: 2rem;
+}
+
+.right .courses-analytics h2 {
+    margin-bottom: 0.8rem;
+}
+
+.right .courses-analytics .course {
+    background: var(--color-white);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.7rem;
+    padding: 1.4rem var(--card-padding);
+    border-radius: var(--border-radius-3);
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+}
+
+.right .courses-analytics .course:hover {
+    box-shadow: none;
+}
+
+.right .courses-analytics .course .right {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+
+.right .courses-analytics .course .icon {
+    padding: 0.6rem;
+    color: var(--color-white);
+    border-radius: 50%;
+    background: var(--color-success);
+    display: flex;
+}
+
+.right .courses-analytics .course.down .icon {
+    background: var(--color-danger);
+}
+
+.right .courses-analytics .add-course {
+    background-color: transparent;
+    border: 2px dashed var(--color-primary);
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.right .courses-analytics .add-course:hover {
+    background: var(--color-primary);
+    color: var(--color-white);
+}
+
+.right .courses-analytics .add-course div {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.right .courses-analytics .add-course h3 {
+    font-weight: 600;
+}
+
+.right .courses-analytics .add-course a {
+    color: var(--color-primary);
+}
+
+.right .courses-analytics .add-course:hover a {
+    color: var(--color-white);
+}
+
+/* ==================== MEDIA QUERIES ==================== */
+@media screen and (max-width: 1200px) {
+    .container {
+        width: 94%;
+        grid-template-columns: 7rem auto 23rem;
+    }
+
+    aside .logo h2 {
+        display: none;
+    }
+
+    aside .sidebar h3 {
+        display: none;
+    }
+
+    aside .sidebar a {
+        width: 5.6rem;
+    }
+
+    aside .sidebar a:last-child {
+        position: relative;
+        margin-top: 1.8rem;
+    }
+
+    main .insights {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    main .recent-students {
+        width: 94%;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        margin: 2rem 0 0 8.8rem;
+    }
+
+    main .recent-students table {
+        width: 81vw;
+    }
+
+    main table thead tr th:last-child, main table thead tr th:first-child {
+        display: none;
+    }
+
+    main table tbody tr td:last-child, main table tbody tr td:first-child {
+        display: none;
+    }
+}
+
+/* ==================== MEDIA QUERIES ==================== */
+@media screen and (max-width: 768px) {
+    .container {
+        width: 100%;
+        grid-template-columns: 1fr;
+    }
+
+    aside {
+        position: fixed;
+        left: -100%;
+        background: var(--color-white);
+        width: 18rem;
+        z-index: 3;
+        box-shadow: 1rem 3rem 4rem var(--color-light);
+        height: 100vh;
+        padding-right: var(--card-padding);
+        /* display: none; */
+        transition: all 300ms ease;
+        /* animation: showMenu 400ms ease forwards; */
+    }
+
+    /* @keyframes showMenu {
+        to {
+            left: 0;
+        }
+    } */
+
+    aside .logo {
+        margin-left: 1rem;
+    }
+
+    aside .logo h2 {
+        display: inline;
+    }
+
+    aside .sidebar h3 {
+        display: inline;
+    }
+
+    aside .sidebar a {
+        width: 100%;
+        height: 3.4rem;
+    }
+
+    aside .sidebar a:last-child {
+        position: absolute;
+        bottom: 5rem;
+    }
+
+    aside .close {
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    main {
+        margin-top: 8rem;
+        padding: 0 2rem 0 1rem;
+    }
+
+    main .recent-students {
+        position: relative;
+        margin: 3rem 0 0 0;
+        width: 100%;
+    }
+
+    main .recent-students table {
+        width: 100%;
+        margin: 0;
+    }
+
+    .right {
+        width: 94%;
+        margin: 0 2rem 0 1rem;
+    }
+
+    .right .top {
+        position: fixed;
+        top: 0;
+        left: 0;
+        align-items: center;
+        padding: 0 0.8rem;
+        height: 4.6rem;
+        background: var(--color-white);
+        width: 100%;
+        margin: 0;
+        z-index: 2;
+        box-shadow: 0 1rem 1rem var(--color-light);
+    }
+
+    .right .top .theme-toggler {
+        width: 4.4rem;
+        position: absolute;
+        left: 66%;
+    }
+
+    .right .profile .info {
+        display: none;
+    }
+
+    .right .top button {
+        display: inline-block;
+        background: transparent;
+        cursor: pointer;
+        color: var(--color-dark);
+        position: absolute;
+        left: 1rem;
+    }
+
+    .right .top button i {
+        font-size: 2rem;
+    }
+}
+
+/* ==================== STUDENTS PAGE ==================== */
+/* ==================== STUDENTS TOP ==================== */
+.students-container {
+    display: grid;
+    width: 96%;
+    margin: 0 auto;
+    gap: 1.8rem;
+    grid-template-columns: 14rem auto;
+}
+
+.students-right {
+    margin-top: 0rem;
+}
+
+.students-right .top {
+    display: flex;
+    justify-content: end;
+    gap: 2rem;
+}
+
+.students-right .top button {
+    display: none;
+}
+
+.students-right .theme-toggler .theme-switch {
+    background: var(--color-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 1.6rem;
+    width: 4.2rem;
+    cursor: pointer;
+    border-radius: var(--border-radius-1);
+}
+
+.students-right .theme-toggler .theme-switch i {
+    font-size: 1.2rem;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.students-right .theme-toggler .theme-switch i.active {
+    background: var(--color-primary);
+    color: var(--color-white);
+    border-radius: var(--border-radius-1);
+}
+
+.students-right .top .profile {
+    display: flex;
+    gap: 2rem;
+    text-align: right;
+}
+
+.students-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* ==================== STUDENT CARD ==================== */
+.student-card {
+    background-color: var(--color-white);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    margin: 1rem 0 2rem 0;
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+}
+
+.student-card:hover {
+    box-shadow: none;
+}
+
+.student-card .icon h2 {
+    font-size: 2rem;
+}
+
+.student-card .icon i {
+    background: var(--color-primary);
+    padding: 0.8rem;
+    border-radius: 50%;
+    color: var(--color-white);
+    font-size: 2rem;
+    width: 3.5rem;
+}
+
+.student-card .middle  {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.student-card h3 {
+    margin: 1rem 0 0.6rem;
+    font-size: 1rem;
+}
+
+.student-card .progress {
+    position: relative;
+    width: 92px;
+    height: 92px;
+    border-radius: 50%;
+}
+
+.student-card svg {
+    width: 7rem;
+    height: 7rem;
+}
+
+.student-card svg circle {
+    fill: none;
+    stroke: var(--color-primary);
+    stroke-width: 14;
+    stroke-linecap: round;
+    transform: translate(5px, 5px);
+}
+
+.student-card svg circle {
+    stroke-dasharray: 200;
+    stroke-dashoffset: -30;
+}
+
+.student-card .progress .number {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.student-card small {
+    margin-top: 1.3rem;
+    display: block;
+}
+
+/* ==================== SEARCH ==================== */
+.search {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.search input {
+    background: white;
+    padding: 10px;
+    border-radius: var(--card-border-radius);
+    transition: all 300ms ease;
+    width: 30rem;
+}
+
+.search .search-btn {
+    background: var(--color-light);
+    color: var(--color-dark);
+    padding: 10px;
+    border-radius: var(--card-border-radius);
+    transition: all 300ms ease;
+    cursor: pointer;
+}
+
+.search .search-btn:hover {
+    background: var(--color-primary);
+    color: var(--color-white);
+}
+
+.add-btn {
+    border: 2px solid var(--color-primary);
+    background-color: transparent;
+    color: var(--color-primary);
+    padding: 8px;
+    border-radius: var(--card-border-radius);
+    transition: all 300ms ease;
+    cursor: pointer;
+    /* position: absolute;
+    left: 90%; */
+}
+
+.add-btn a {
+    color: var(--color-primary);
+}
+
+.add-btn:hover {
+    background: var(--color-primary);
+    color: var(--color-white);
+}
+
+.add-btn:hover a {
+    color: var(--color-white);
+}
+
+/* ==================== STUDENTS TABLE ==================== */
+main .students table {
+    background: var(--color-white);
+    width: 100%;
+    border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+    margin-bottom: 2rem;
+}
+
+main .students table:hover {
+    box-shadow: none;
+}
+
+main .students table tbody td {
+    height: 2.8rem;
+    border-bottom: 1px solid var(--color-light);
+    color: var(--color-dark-variant);
+}
+
+main .students table tbody .success {
+    color: var(--color-success);
+}
+
+main .students table tbody .danger {
+    color: var(--color-danger);
+}
+
+main .students table tbody .primary a {
+    color: var(--color-primary);
+}
+
+main .students table tbody tr:last-child td {
+    border: none;
+}
+
+main .students .details-btn {
+    color: var(--color-primary);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* ==================== MEDIA QUERIES ==================== */
+@media screen and (max-width: 1200px) {
+    .students-container {
+        width: 94%;
+        grid-template-columns: 7rem auto;
+    }
+
+    main .students table thead tr th:last-child { 
+        display: table-cell;
+    }
+
+    main .students table thead tr th:first-child,
+    main .students table thead tr th:nth-child(4),
+    main .students table thead tr th:nth-child(5) {
+        display: none;
+    }
+
+    main .students table tbody tr td:last-child {
+        display: table-cell;
+    }
+
+    main .students table tbody tr td:first-child,
+    main .students table tbody tr td:nth-child(4),
+    main .students table tbody tr td:nth-child(5) {
+        display: none;
+    }
+}
+
+/* ==================== MEDIA QUERIES ==================== */
+@media screen and (max-width: 768px) {
+    .students-container {
+        width: 100%;
+        grid-template-columns: 1fr;
+    }
+
+    .students-container aside {
+        position: fixed;
+        left: -100%;
+        background: var(--color-white);
+        width: 18rem;
+        z-index: 3;
+        box-shadow: 1rem 3rem 4rem var(--color-light);
+        height: 100vh;
+        padding-right: var(--card-padding);
+        /* display: none; */
+        transition: all 300ms ease;
+        /* animation: showMenu 400ms ease forwards; */
+    }
+
+    /* @keyframes showMenu {
+        to {
+            left: 0;
+        }
+    } */
+
+    .students-container aside .logo {
+        margin-left: 1rem;
+    }
+
+    .students-container aside .logo h2 {
+        display: inline;
+    }
+
+    .students-container aside .sidebar h3 {
+        display: inline;
+    }
+
+    .students-container aside .sidebar a {
+        width: 100%;
+        height: 3.4rem;
+    }
+
+    .students-container aside .sidebar a:last-child {
+        position: absolute;
+        bottom: 5rem;
+    }
+
+    .students-container aside .close {
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    .students-top {
+        width: 94%;
+    }
+
+    .students-top .top {
+        position: fixed;
+        top: 0;
+        left: 0;
+        align-items: center;
+        padding: 0 0.8rem;
+        height: 4.6rem;
+        background: var(--color-white);
+        width: 100%;
+        margin: 0;
+        z-index: 2;
+        box-shadow: 0 1rem 1rem var(--color-light);
+    }
+
+    .students-top .top .theme-toggler {
+        width: 4.4rem;
+        position: absolute;
+        left: 66%;
+    }
+
+    .students-top .profile .info {
+        display: none;
+    }
+
+    .students-top .top button {
+        display: inline-block;
+        background: transparent;
+        cursor: pointer;
+        color: var(--color-dark);
+        position: absolute;
+        left: 1rem;
+    }
+
+    .students-top .top button i {
+        font-size: 2rem;
+    }
+
+    .student-card .middle .left:nth-child(1) {
+        display: none;
+    }
+
+    .search {
+        flex-direction: column-reverse;
+        gap: 1rem;
+    }
+
+    .search input {
+        width: 28rem;
+    }
+
+    main .students table thead tr th:nth-child(3),
+    main .students table thead tr th:nth-child(6) {
+        display: none;
+    }
+
+    main .students table tbody tr td:nth-child(3),
+    main .students table tbody tr td:nth-child(6) {
+        display: none;
+    }
+}
+
+/* ====================  ==================== */
+/* ==================== details card ==================== */
+.details-box {
+    display: none;
+}
+
+.details-bg {
+    background-color: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.details-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.details-card {
+    background: var(--color-white);
+    height: auto;
+    width: 75%;
+    border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+    margin: 2rem 0;
+    position: fixed;
+    top: 5rem;
+}
+
+.details-card .details-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.details-card .details-top i {
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.details-card .details {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.details-card .details .details-head {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.details-card .details .student-photo {
+    width: 50%;
+    height: 100%;
+    padding-right: 1rem;
+}
+
+.details-card .details .student-photo img {
+    object-fit: cover;
+    border-radius: 1rem;
+    height: 27rem;
+}
+
+.details-card .details .student-details h2 {
+    font-size: 2rem;
+}
+
+.details-card .details .student-details p {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.details-card .edit-btn {
+    border: 2px solid var(--color-primary);
+    background-color: transparent;
+    padding: 8px;
+    border-radius: var(--card-border-radius);
+    transition: all 300ms ease;
+    cursor: pointer;
+    margin-left: 5rem;
+    /* position: absolute;
+    right: 1rem;
+    top: 25%; */
+}
+
+.details-card .edit-btn:hover {
+    background-color: var(--color-primary);
+}
+
+.details-card .edit-btn a {
+    color: var(--color-primary);
+}
+
+.details-card .edit-btn:hover a {
+    color: var(--color-white);
+}
+
+/* ==================== MEDIA QUERIES ==================== */
+@media screen and (max-width: 768px) {
+    .details-card {
+        height: auto;
+    }
+
+    .details-card .details .student-photo {
+        display: none;
+    }
+}
+
+/* ==================== ADD STUDENT PAGE ==================== */
+/* ==================== ADD STUDENT ==================== */
+.add-students {
+    margin-top: 2rem;
+}
+
+.add-students h2 {
+    margin-bottom: 0.8rem;
+}
+
+.add-student {
+    background: var(--color-white);
+    width: 100%;
+    border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.2rem;
+    position: relative;
+}
+
+.add-student table label {
+    color: var(--color-dark);
+}
+
+.add-student table input {
+    background: var(--color-background);
+    color: var(--color-dark);
+    padding: 10px;
+    border-radius: var(--card-border-radius);
+    transition: all 300ms ease;
+    width: 40rem;
+    font-size: 1.2rem;
+    margin-bottom: 0.2rem;
+    margin-left: 1rem;
+}
+
+.add-student table select {
+    background: var(--color-background);
+    color: var(--color-dark);
+    padding: 10px;
+    border-radius: var(--card-border-radius);
+    transition: all 300ms ease;
+    width: 40rem;
+    font-size: 1.2rem;
+    margin-bottom: 0.2rem;
+    margin-left: 1rem;
+}
+
+.buttons {
+    position: absolute;
+    bottom: 2rem;
+    right: 4rem;
+}
+
+.buttons .add {
+    border: 2px solid var(--color-primary);
+    background-color: transparent;
+    color: var(--color-primary);
+    width: 5rem;
+    padding: 8px;
+    border-radius: var(--card-border-radius);
+    transition: all 300ms ease;
+    cursor: pointer;
+}
+
+.buttons .add:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.buttons .reset {
+    border: 2px solid var(--color-warning);
+    background-color: transparent;
+    color: var(--color-warning);
+    width: 5rem;
+    padding: 8px;
+    border-radius: var(--card-border-radius);
+    transition: all 300ms ease;
+    cursor: pointer;
+}
+
+.buttons .reset:hover {
+    background-color: var(--color-warning);
+    color: var(--color-white);
+}
+
+/* ==================== MEDIA QUERIES ==================== */
+@media screen and (max-width: 1200px) {
+    main .add-student table thead tr th:first-child,
+    main .add-student table thead tr th:last-child { 
+        display: table-cell;
+    }
+
+    main .add-student table tbody tr td:first-child,
+    main .add-student table tbody tr td:last-child {
+        display: table-cell;
+    }
+
+    main .add-student {
+        padding-bottom: 5rem;
+    }
+
+    main .add-student table tbody tr td input {
+        width: 31rem;
+    }
+
+    main .add-student table tbody tr td select {
+        width: 31rem;
+    }
+
+    .buttons {
+        right: 2rem;
+    }
+}
+
+/* ==================== MEDIA QUERIES ==================== */
+@media screen and (max-width: 768px) {
+    main .add-student table thead tr th:first-child,
+    main .add-student table thead tr th:last-child { 
+        display: block;
+    }
+
+    main .add-student table tbody tr td:first-child,
+    main .add-student table tbody tr td:last-child {
+        display: block;
+    }
+
+    main .add-student {
+        padding-bottom: 5rem;
+    }
+
+    main .add-student table tbody tr td input {
+        width: 29rem;
+        margin-left: 0;
+    }
+
+    main .add-student table tbody tr td select {
+        width: 29rem;
+        margin-left: 0;
+    }
+}
+
+/* ==================== EDIT STUDENT PAGE ==================== */
+.edit-students {
+    margin-top: 2rem;
+}
+
+.edit-students h2 {
+    margin-bottom: 0.8rem;
+}
+
+.edit-student {
+    background: var(--color-white);
+    width: 100%;
+    border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.2rem;
+    position: relative;
+}
+
+.edit-student table label {
+    color: var(--color-dark);
+}
+
+.edit-student table input {
+    background: var(--color-background);
+    color: var(--color-dark);
+    padding: 10px;
+    border-radius: var(--card-border-radius);
+    transition: all 300ms ease;
+    width: 40rem;
+    font-size: 1.2rem;
+    margin-bottom: 0.2rem;
+    margin-left: 1rem;
+}
+
+.edit-student table select {
+    background: var(--color-background);
+    color: var(--color-dark);
+    padding: 10px;
+    border-radius: var(--card-border-radius);
+    transition: all 300ms ease;
+    width: 40rem;
+    font-size: 1.2rem;
+    margin-bottom: 0.2rem;
+    margin-left: 1rem;
+}
+
+.buttons .update {
+    border: 2px solid var(--color-success);
+    background-color: transparent;
+    color: var(--color-success);
+    width: 5rem;
+    padding: 8px;
+    border-radius: var(--card-border-radius);
+    transition: all 300ms ease;
+    cursor: pointer;
+}
+
+.buttons .update:hover {
+    background-color: var(--color-success);
+    color: var(--color-white);
+}
+
+.buttons .delete {
+    border: 2px solid var(--color-danger);
+    background-color: transparent;
+    color: var(--color-danger);
+    width: 5rem;
+    padding: 8px;
+    border-radius: var(--card-border-radius);
+    transition: all 300ms ease;
+    cursor: pointer;
+}
+
+.buttons .delete:hover {
+    background-color: var(--color-danger);
+    color: var(--color-white);
+}
+
+.delete-box {
+    display: none;
+}
+
+.delete-bg {
+    background-color: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.delete-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.delete-card {
+    font-size: 1.2rem;
+    background: var(--color-white);
+    border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+    margin: 2rem 0;
+    position: fixed;
+    top: 15rem;
+}
+
+.delete-buttons {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+}
+
+.delete-buttons .delete-btn {
+    border: 2px solid var(--color-danger);
+    background-color: transparent;
+    color: var(--color-danger);
+    width: 5rem;
+    padding: 8px;
+    border-radius: var(--card-border-radius);
+    transition: all 300ms ease;
+    cursor: pointer;
+}
+
+.delete-buttons .delete-btn:hover {
+    background-color: var(--color-danger);
+    color: var(--color-white);
+}
+
+.delete-buttons .cancel-btn {
+    border: 2px solid var(--color-warning);
+    background-color: transparent;
+    color: var(--color-warning);
+    width: 5rem;
+    padding: 8px;
+    border-radius: var(--card-border-radius);
+    transition: all 300ms ease;
+    cursor: pointer;
+}
+
+.delete-buttons .cancel-btn:hover {
+    background-color: var(--color-warning);
+    color: var(--color-white);
+}
+
+/* ==================== MEDIA QUERIES ==================== */
+@media screen and (max-width: 1200px) {
+    main .edit-student table thead tr th:first-child,
+    main .edit-student table thead tr th:last-child { 
+        display: table-cell;
+    }
+
+    main .edit-student table tbody tr td:first-child,
+    main .edit-student table tbody tr td:last-child {
+        display: table-cell;
+    }
+
+    main .edit-student {
+        padding-bottom: 5rem;
+    }
+
+    main .edit-student table tbody tr td input {
+        width: 31rem;
+    }
+
+    main .edit-student table tbody tr td select {
+        width: 31rem;
+    }
+}
+
+/* ==================== MEDIA QUERIES ==================== */
+@media screen and (max-width: 768px) {
+    main .edit-student table thead tr th:first-child,
+    main .edit-student table thead tr th:last-child { 
+        display: block;
+    }
+
+    main .edit-student table tbody tr td:first-child,
+    main .edit-student table tbody tr td:last-child {
+        display: block;
+    }
+
+    main .edit-student {
+        padding-bottom: 5rem;
+    }
+
+    main .edit-student table tbody tr td input {
+        width: 29rem;
+        margin-left: 0;
+    }
+
+    main .edit-student table tbody tr td select {
+        width: 29rem;
+        margin-left: 0;
+    }
+}
+
+/* ==================== TEACHERS PAGE ==================== */
+/* ==================== TEACHERS ==================== */
+.teachers-container {
+    display: grid;
+    width: 96%;
+    margin: 0 auto;
+    gap: 1.8rem;
+    grid-template-columns: 14rem auto;
+}
+
+.teachers-right {
+    margin-top: 0rem;
+}
+
+.teachers-right .top {
+    display: flex;
+    justify-content: end;
+    gap: 2rem;
+}
+
+.teachers-right .top button {
+    display: none;
+}
+
+.teachers-right .theme-toggler .theme-switch {
+    background: var(--color-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 1.6rem;
+    width: 4.2rem;
+    cursor: pointer;
+    border-radius: var(--border-radius-1);
+}
+
+.teachers-right .theme-toggler .theme-switch i {
+    font-size: 1.2rem;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.teachers-right .theme-toggler .theme-switch i.active {
+    background: var(--color-primary);
+    color: var(--color-white);
+    border-radius: var(--border-radius-1);
+}
+
+.teachers-right .top .profile {
+    display: flex;
+    gap: 2rem;
+    text-align: right;
+}
+
+.teachers-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* ==================== TEACHER CARD ==================== */
+.teacher-card {
+    background-color: var(--color-white);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    margin: 1rem 0 2rem 0;
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+}
+
+.teacher-card:hover {
+    box-shadow: none;
+}
+
+.teacher-card .icon h2 {
+    font-size: 2rem;
+}
+
+.teacher-card .icon i {
+    background: var(--color-danger);
+    padding: 0.8rem;
+    border-radius: 50%;
+    color: var(--color-white);
+    font-size: 2rem;
+    width: 3.5rem;
+}
+
+.teacher-card .middle  {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.teacher-card h3 {
+    margin: 1rem 0 0.6rem;
+    font-size: 1rem;
+}
+
+.teacher-card .progress {
+    position: relative;
+    width: 92px;
+    height: 92px;
+    border-radius: 50%;
+}
+
+.teacher-card svg {
+    width: 7rem;
+    height: 7rem;
+}
+
+.teacher-card svg circle {
+    fill: none;
+    stroke: var(--color-primary);
+    stroke-width: 14;
+    stroke-linecap: round;
+    transform: translate(5px, 5px);
+}
+
+.teacher-card svg circle {
+    stroke-dasharray: 200;
+    stroke-dashoffset: -30;
+}
+
+.teacher-card .progress .number {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.teacher-card small {
+    margin-top: 1.3rem;
+    display: block;
+}
+
+/* ==================== SEARCH ==================== */
+.search {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.search .search-btn {
+    background: var(--color-light);
+    color: var(--color-dark);
+    padding: 10px;
+    border-radius: var(--card-border-radius);
+    transition: all 300ms ease;
+    cursor: pointer;
+}
+
+.search .search-btn:hover {
+    background: var(--color-primary);
+    color: var(--color-white);
+}
+
+.add-btn {
+    border: 2px solid var(--color-primary);
+    background-color: transparent;
+    color: var(--color-primary);
+    padding: 8px;
+    border-radius: var(--card-border-radius);
+    transition: all 300ms ease;
+    cursor: pointer;
+    /* position: absolute;
+    left: 90%; */
+}
+
+.add-btn a {
+    color: var(--color-primary);
+}
+
+.add-btn:hover {
+    background: var(--color-primary);
+    color: var(--color-white);
+}
+
+.add-btn:hover a {
+    color: var(--color-white);
+}
+
+main .teachers table {
+    background: var(--color-white);
+    width: 100%;
+    border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+    margin-bottom: 2rem;
+}
+
+main .teachers table:hover {
+    box-shadow: none;
+}
+
+main .teachers table tbody td {
+    height: 2.8rem;
+    border-bottom: 1px solid var(--color-light);
+    color: var(--color-dark-variant);
+}
+
+main .teachers table tbody .success {
+    color: var(--color-success);
+}
+
+main .teachers table tbody .danger {
+    color: var(--color-danger);
+}
+
+main .teachers table tbody .primary {
+    color: var(--color-primary);
+}
+
+main .teachers table tbody tr:last-child td {
+    border: none;
+}
+
+main .teachers .edit-btn {
+    color: var(--color-primary);
+    transition: all 300ms ease;
+    cursor: pointer;
+}
+
+main .teachers .edit-btn:hover {
+    border-bottom-color: var(--color-primary);
+}
+
+main .teachers .edit-btn a {
+    color: var(--color-primary);
+}
+
+main .teachers .delete-btn {
+    color: var(--color-danger);
+    transition: all 300ms ease;
+    cursor: pointer;
+}
+
+main .teachers .delete-btn:hover {
+    border-bottom-color: var(--color-danger);
+}
+
+main .teachers .delete-btn a {
+    color: var(--color-danger);
+}
+
+@media screen and (max-width: 1200px) {
+    .teachers-container {
+        width: 94%;
+        grid-template-columns: 7rem auto;
+    }
+
+    main .teachers table thead tr th:last-child { 
+        display:table-cell;
+    }
+
+    main .teachers table thead tr th:first-child,
+    main .teachers table thead tr th:nth-child(4),
+    main .teachers table thead tr th:nth-child(5) {
+        display: none;
+    }
+
+    main .teachers table tbody tr td:last-child {
+        display:table-cell;
+    }
+
+    main .teachers table tbody tr td:first-child,
+    main .teachers table tbody tr td:nth-child(4),
+    main .teachers table tbody tr td:nth-child(5) {
+        display: none;
+    }
+}
+
+/* ==================== MEDIA QUERIES ==================== */
+@media screen and (max-width: 768px) {
+    .teachers-container {
+        width: 100%;
+        grid-template-columns: 1fr;
+    }
+
+    .teachers-container aside {
+        position: fixed;
+        left: -100%;
+        background: var(--color-white);
+        width: 18rem;
+        z-index: 3;
+        box-shadow: 1rem 3rem 4rem var(--color-light);
+        height: 100vh;
+        padding-right: var(--card-padding);
+        /* display: none; */
+        transition: all 300ms ease;
+        /* animation: showMenu 400ms ease forwards; */
+    }
+
+    /* @keyframes showMenu {
+        to {
+            left: 0;
+        }
+    } */
+
+    .teachers-container aside .logo {
+        margin-left: 1rem;
+    }
+
+    .teachers-container aside .logo h2 {
+        display: inline;
+    }
+
+    .teachers-container aside .sidebar h3 {
+        display: inline;
+    }
+
+    .teachers-container aside .sidebar a {
+        width: 100%;
+        height: 3.4rem;
+    }
+
+    .teachers-container aside .sidebar a:last-child {
+        position: absolute;
+        bottom: 5rem;
+    }
+
+    .teachers-container aside .close {
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    .teachers-top {
+        width: 94%;
+    }
+
+    .teachers-top .top {
+        position: fixed;
+        top: 0;
+        left: 0;
+        align-items: center;
+        padding: 0 0.8rem;
+        height: 4.6rem;
+        background: var(--color-white);
+        width: 100%;
+        margin: 0;
+        z-index: 2;
+        box-shadow: 0 1rem 1rem var(--color-light);
+    }
+
+    .teachers-top .top .theme-toggler {
+        width: 4.4rem;
+        position: absolute;
+        left: 66%;
+    }
+
+    .teachers-top .profile .info {
+        display: none;
+    }
+
+    .teachers-top .top button {
+        display: inline-block;
+        background: transparent;
+        cursor: pointer;
+        color: var(--color-dark);
+        position: absolute;
+        left: 1rem;
+    }
+
+    .teachers-top .top button i {
+        font-size: 2rem;
+    }
+
+    .teacher-card .middle .left:nth-child(1) {
+        display: none;
+    }
+
+    main .teachers table thead tr th:nth-child(3) {
+        display: none;
+    }
+
+    main .teachers table tbody tr td:nth-child(3) {
+        display: none;
+    }
+}
+
+/* ==================== ADD TEACHER PAGE ==================== */
+/* ==================== ADD TEACHER ==================== */
+.add-teachers {
+    margin-top: 2rem;
+    position: relative;
+}
+
+.add-teachers h2 {
+    margin-bottom: 0.8rem;
+}
+
+.add-teacher {
+    background: var(--color-white);
+    width: 100%;
+    border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.2rem;
+}
+
+.add-teacher table label {
+    color: var(--color-dark);
+}
+
+.add-teacher table input {
+    background: var(--color-background);
+    color: var(--color-dark);
+    padding: 10px;
+    border-radius: var(--card-border-radius);
+    transition: all 300ms ease;
+    width: 40rem;
+    font-size: 1.2rem;
+    margin-bottom: 0.2rem;
+    margin-left: 1rem;
+}
+
+.add-teacher table select {
+    background: var(--color-background);
+    color: var(--color-dark);
+    padding: 10px;
+    border-radius: var(--card-border-radius);
+    transition: all 300ms ease;
+    width: 40rem;
+    font-size: 1.2rem;
+    margin-bottom: 0.2rem;
+    margin-left: 1rem;
+}
+
+.add-teacher-buttons {
+    position: absolute;
+    bottom: 1rem;
+    right: 4rem;
+}
+
+.add-teacher-buttons .add {
+    border: 2px solid var(--color-primary);
+    background-color: transparent;
+    color: var(--color-primary);
+    width: 5rem;
+    padding: 8px;
+    border-radius: var(--card-border-radius);
+    transition: all 300ms ease;
+    cursor: pointer;
+}
+
+.add-teacher-buttons .add:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.add-teacher-buttons .reset {
+    border: 2px solid var(--color-warning);
+    background-color: transparent;
+    color: var(--color-warning);
+    width: 5rem;
+    padding: 8px;
+    border-radius: var(--card-border-radius);
+    transition: all 300ms ease;
+    cursor: pointer;
+}
+
+.add-teacher-buttons .reset:hover {
+    background-color: var(--color-warning);
+    color: var(--color-white);
+}
+
+/* ==================== MEDIA QUERIES ==================== */
+@media screen and (max-width: 1200px) {
+    main .add-teacher table thead tr th:first-child,
+    main .add-teacher table thead tr th:last-child { 
+        display: table-cell;
+    }
+
+    main .add-teacher table tbody tr td:first-child,
+    main .add-teacher table tbody tr td:last-child {
+        display: table-cell;
+    }
+
+    main .add-teacher {
+        padding-bottom: 5rem;
+    }
+
+    main .add-teacher table tbody tr td input {
+        width: 31rem;
+    }
+
+    main .add-teacher table tbody tr td select {
+        width: 31rem;
+    }
+
+    .add-teacher-buttons {
+        right: 2rem;
+    }
+}
+
+/* ==================== MEDIA QUERIES ==================== */
+@media screen and (max-width: 768px) {
+    main .add-teacher table thead tr th:first-child,
+    main .add-teacher table thead tr th:last-child { 
+        display: block;
+    }
+
+    main .add-teacher table tbody tr td:first-child,
+    main .add-teacher table tbody tr td:last-child {
+        display: block;
+    }
+
+    main .add-teacher {
+        padding-bottom: 5rem;
+    }
+
+    main .add-teacher table tbody tr td input {
+        width: 29rem;
+        margin-left: 0;
+    }
+
+    main .add-teacher table tbody tr td select {
+        width: 29rem;
+        margin-left: 0;
+    }
+}
+
+/* ==================== EDIT TEACHER PAGE ==================== */
+.edit-teachers {
+    margin-top: 2rem;
+    position: relative;
+}
+
+.edit-teachers h2 {
+    margin-bottom: 0.8rem;
+}
+
+.edit-teacher {
+    background: var(--color-white);
+    width: 100%;
+    border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.2rem;
+}
+
+.edit-teacher table label {
+    color: var(--color-dark);
+}
+
+.edit-teacher table input {
+    background: var(--color-background);
+    color: var(--color-dark);
+    padding: 10px;
+    border-radius: var(--card-border-radius);
+    transition: all 300ms ease;
+    width: 40rem;
+    font-size: 1.2rem;
+    margin-bottom: 0.2rem;
+    margin-left: 1rem;
+}
+
+.edit-teacher table select {
+    background: var(--color-background);
+    color: var(--color-dark);
+    padding: 10px;
+    border-radius: var(--card-border-radius);
+    transition: all 300ms ease;
+    width: 40rem;
+    font-size: 1.2rem;
+    margin-bottom: 0.2rem;
+    margin-left: 1rem;
+}
+
+.edit-teacher-buttons {
+    position: absolute;
+    bottom: 1rem;
+    right: 4rem;
+}
+
+.edit-teacher-buttons .update {
+    border: 2px solid var(--color-success);
+    background-color: transparent;
+    color: var(--color-success);
+    width: 5rem;
+    padding: 8px;
+    border-radius: var(--card-border-radius);
+    transition: all 300ms ease;
+    cursor: pointer;
+}
+
+.edit-teacher-buttons .update:hover {
+    background-color: var(--color-success);
+    color: var(--color-white);
+}
+
+.edit-teacher-buttons .delete {
+    border: 2px solid var(--color-danger);
+    background-color: transparent;
+    color: var(--color-danger);
+    width: 5rem;
+    padding: 8px;
+    border-radius: var(--card-border-radius);
+    transition: all 300ms ease;
+    cursor: pointer;
+}
+
+.edit-teacher-buttons .delete:hover {
+    background-color: var(--color-danger);
+    color: var(--color-white);
+}
+
+/* ==================== MEDIA QUERIES ==================== */
+@media screen and (max-width: 1200px) {
+    main .edit-teacher table thead tr th:first-child,
+    main .edit-teacher table thead tr th:last-child { 
+        display: table-cell;
+    }
+
+    main .edit-teacher table tbody tr td:first-child,
+    main .edit-teacher table tbody tr td:last-child {
+        display: table-cell;
+    }
+
+    main .edit-teacher {
+        padding-bottom: 5rem;
+    }
+
+    main .edit-teacher table tbody tr td input {
+        width: 31rem;
+    }
+
+    main .edit-teacher table tbody tr td select {
+        width: 31rem;
+    }
+
+    .edit-teacher-buttons {
+        right: 2rem;
+    }
+}
+
+/* ==================== MEDIA QUERIES ==================== */
+@media screen and (max-width: 768px) {
+    main .edit-teacher table thead tr th:first-child,
+    main .edit-teacher table thead tr th:last-child { 
+        display: block;
+    }
+
+    main .edit-teacher table tbody tr td:first-child,
+    main .edit-teacher table tbody tr td:last-child {
+        display: block;
+    }
+
+    main .edit-teacher {
+        padding-bottom: 5rem;
+    }
+
+    main .edit-teacher table tbody tr td input {
+        width: 29rem;
+        margin-left: 0;
+    }
+
+    main .edit-teacher table tbody tr td select {
+        width: 29rem;
+        margin-left: 0;
+    }
+}
+
+/* ==================== COURSES PAGE ==================== */
+/* ==================== COURSES ==================== */
+.courses-container {
+    display: grid;
+    width: 96%;
+    margin: 0 auto;
+    gap: 1.8rem;
+    grid-template-columns: 14rem auto;
+}
+
+.courses-right {
+    margin-top: 0rem;
+}
+
+.courses-right .top {
+    display: flex;
+    justify-content: end;
+    gap: 2rem;
+}
+
+.courses-right .top button {
+    display: none;
+}
+
+.courses-right .theme-toggler .theme-switch {
+    background: var(--color-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 1.6rem;
+    width: 4.2rem;
+    cursor: pointer;
+    border-radius: var(--border-radius-1);
+}
+
+.courses-right .theme-toggler .theme-switch i {
+    font-size: 1.2rem;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.courses-right .theme-toggler .theme-switch i.active {
+    background: var(--color-primary);
+    color: var(--color-white);
+    border-radius: var(--border-radius-1);
+}
+
+.courses-right .top .profile {
+    display: flex;
+    gap: 2rem;
+    text-align: right;
+}
+
+.courses-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* ==================== COURSE CARD ==================== */
+.course-card {
+    background-color: var(--color-white);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    margin: 1rem 0 2rem 0;
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+}
+
+.course-card:hover {
+    box-shadow: none;
+}
+
+.course-card .icon h2 {
+    font-size: 2rem;
+}
+
+.course-card .icon i {
+    background: var(--color-success);
+    padding: 0.8rem;
+    border-radius: 50%;
+    color: var(--color-white);
+    font-size: 2rem;
+    width: 3.5rem;
+}
+
+.course-card .middle  {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.course-card h3 {
+    margin: 1rem 0 0.6rem;
+    font-size: 1rem;
+}
+
+.course-card .progress {
+    position: relative;
+    width: 92px;
+    height: 92px;
+    border-radius: 50%;
+}
+
+.course-card svg {
+    width: 7rem;
+    height: 7rem;
+}
+
+.course-card svg circle {
+    fill: none;
+    stroke: var(--color-primary);
+    stroke-width: 14;
+    stroke-linecap: round;
+    transform: translate(5px, 5px);
+}
+
+.course-card svg circle {
+    stroke-dasharray: 200;
+    stroke-dashoffset: -30;
+}
+
+.course-card .progress .number {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.course-card small {
+    margin-top: 1.3rem;
+    display: block;
+}
+
+/* ==================== SEARCH ==================== */
+.search {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.search .search-btn {
+    background: var(--color-light);
+    color: var(--color-dark);
+    padding: 10px;
+    border-radius: var(--card-border-radius);
+    transition: all 300ms ease;
+    cursor: pointer;
+}
+
+.search .search-btn:hover {
+    background: var(--color-primary);
+    color: var(--color-white);
+}
+
+.add-btn {
+    border: 2px solid var(--color-primary);
+    background-color: transparent;
+    color: var(--color-primary);
+    padding: 8px;
+    border-radius: var(--card-border-radius);
+    transition: all 300ms ease;
+    cursor: pointer;
+    /* position: absolute;
+    left: 90%; */
+}
+
+.add-btn a {
+    color: var(--color-primary);
+}
+
+.add-btn:hover {
+    background: var(--color-primary);
+    color: var(--color-white);
+}
+
+.add-btn:hover a {
+    color: var(--color-white);
+}
+
+main .courses table {
+    background: var(--color-white);
+    width: 100%;
+    border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+    margin-bottom: 2rem;
+}
+
+main .courses table:hover {
+    box-shadow: none;
+}
+
+main .courses table tbody td {
+    height: 2.8rem;
+    border-bottom: 1px solid var(--color-light);
+    color: var(--color-dark-variant);
+}
+
+main .courses table tbody .success {
+    color: var(--color-success);
+}
+
+main .courses table tbody .danger {
+    color: var(--color-danger);
+}
+
+main .courses table tbody .primary {
+    color: var(--color-primary);
+}
+
+main .courses table tbody tr:last-child td {
+    border: none;
+}
+
+main .courses .edit-btn {
+    color: var(--color-primary);
+    transition: all 300ms ease;
+    cursor: pointer;
+}
+
+main .courses .edit-btn:hover {
+    border-bottom-color: var(--color-primary);
+}
+
+main .courses .edit-btn a {
+    color: var(--color-primary);
+}
+
+main .courses .delete-btn {
+    color: var(--color-danger);
+    transition: all 300ms ease;
+    cursor: pointer;
+}
+
+main .courses .delete-btn:hover {
+    border-bottom-color: var(--color-danger);
+}
+
+main .courses .delete-btn a {
+    color: var(--color-danger);
+}
+
+/* ==================== MEDIA QUERIES ==================== */
+@media screen and (max-width: 1200px) {
+    .courses-container {
+        width: 94%;
+        grid-template-columns: 7rem auto;
+    }
+
+    main .courses table thead tr th:last-child { 
+        display:table-cell;
+    }
+
+    main .courses table thead tr th:first-child {
+        display: table-cell;
+    }
+
+    main .courses table thead tr th:nth-child(4),
+    main .courses table thead tr th:nth-child(5) {
+        display: none;
+    }
+
+    main .courses table tbody tr td:last-child {
+        display:table-cell;
+    }
+
+    main .courses table tbody tr td:first-child {
+        display: table-cell;
+    }
+
+    main .courses table tbody tr td:nth-child(4),
+    main .courses table tbody tr td:nth-child(5) {
+        display: none;
+    }
+}
+
+/* ==================== MEDIA QUERIES ==================== */
+@media screen and (max-width: 768px) {
+    .courses-container {
+        width: 100%;
+        grid-template-columns: 1fr;
+    }
+
+    .courses-container aside {
+        position: fixed;
+        left: -100%;
+        background: var(--color-white);
+        width: 18rem;
+        z-index: 3;
+        box-shadow: 1rem 3rem 4rem var(--color-light);
+        height: 100vh;
+        padding-right: var(--card-padding);
+        /* display: none; */
+        transition: all 300ms ease;
+        /* animation: showMenu 400ms ease forwards; */
+    }
+
+    /* @keyframes showMenu {
+        to {
+            left: 0;
+        }
+    } */
+
+    .courses-container aside .logo {
+        margin-left: 1rem;
+    }
+
+    .courses-container aside .logo h2 {
+        display: inline;
+    }
+
+    .courses-container aside .sidebar h3 {
+        display: inline;
+    }
+
+    .courses-container aside .sidebar a {
+        width: 100%;
+        height: 3.4rem;
+    }
+
+    .courses-container aside .sidebar a:last-child {
+        position: absolute;
+        bottom: 5rem;
+    }
+
+    .courses-container aside .close {
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    .courses-top {
+        width: 94%;
+    }
+
+    .courses-top .top {
+        position: fixed;
+        top: 0;
+        left: 0;
+        align-items: center;
+        padding: 0 0.8rem;
+        height: 4.6rem;
+        background: var(--color-white);
+        width: 100%;
+        margin: 0;
+        z-index: 2;
+        box-shadow: 0 1rem 1rem var(--color-light);
+    }
+
+    .courses-top .top .theme-toggler {
+        width: 4.4rem;
+        position: absolute;
+        left: 66%;
+    }
+
+    .courses-top .profile .info {
+        display: none;
+    }
+
+    .courses-top .top button {
+        display: inline-block;
+        background: transparent;
+        cursor: pointer;
+        color: var(--color-dark);
+        position: absolute;
+        left: 1rem;
+    }
+
+    .courses-top .top button i {
+        font-size: 2rem;
+    }
+
+    .course-card .middle .left:nth-child(1) {
+        display: none;
+    }
+
+    main .courses table thead tr th:first-child,
+    main .courses table thead tr th:nth-child(3) {
+        display: none;
+    }
+
+    main .courses table tbody tr td:first-child,
+    main .courses table tbody tr td:nth-child(3) {
+        display: none;
+    }
+}
+
+/* ==================== ADD COURSE PAGE ==================== */
+/* ==================== ADD COURSE ==================== */
+.add-courses {
+    margin-top: 2rem;
+    position: relative;
+}
+
+.add-courses h2 {
+    margin-bottom: 0.8rem;
+}
+
+.add-course {
+    background: var(--color-white);
+    width: 100%;
+    border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.2rem;
+}
+
+.add-course table label {
+    color: var(--color-dark);
+}
+
+.add-course table input {
+    background: var(--color-background);
+    color: var(--color-dark);
+    padding: 10px;
+    border-radius: var(--card-border-radius);
+    transition: all 300ms ease;
+    width: 40rem;
+    font-size: 1.2rem;
+    margin-bottom: 0.2rem;
+    margin-left: 1rem;
+}
+
+.add-course table select {
+    background: var(--color-background);
+    color: var(--color-dark);
+    padding: 10px;
+    border-radius: var(--card-border-radius);
+    transition: all 300ms ease;
+    width: 40rem;
+    font-size: 1.2rem;
+    margin-bottom: 0.2rem;
+    margin-left: 1rem;
+}
+
+.add-course-buttons {
+    position: absolute;
+    bottom: 1rem;
+    right: 4rem;
+}
+
+.add-course-buttons .add {
+    border: 2px solid var(--color-primary);
+    background-color: transparent;
+    color: var(--color-primary);
+    width: 5rem;
+    padding: 8px;
+    border-radius: var(--card-border-radius);
+    transition: all 300ms ease;
+    cursor: pointer;
+}
+
+.add-course-buttons .add:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.add-course-buttons .reset {
+    border: 2px solid var(--color-warning);
+    background-color: transparent;
+    color: var(--color-warning);
+    width: 5rem;
+    padding: 8px;
+    border-radius: var(--card-border-radius);
+    transition: all 300ms ease;
+    cursor: pointer;
+}
+
+.add-course-buttons .reset:hover {
+    background-color: var(--color-warning);
+    color: var(--color-white);
+}
+
+/* ==================== MEDIA QUERIES ==================== */
+@media screen and (max-width: 1200px) {
+    main .add-course table thead tr th:first-child,
+    main .add-course table thead tr th:last-child { 
+        display: table-cell;
+    }
+
+    main .add-course table tbody tr td:first-child,
+    main .add-course table tbody tr td:last-child {
+        display: table-cell;
+    }
+
+    main .add-course {
+        padding-bottom: 5rem;
+    }
+
+    main .add-course table tbody tr td input {
+        width: 31rem;
+    }
+
+    main .add-course table tbody tr td select {
+        width: 31rem;
+    }
+
+    .add-course-buttons {
+        right: 2rem;
+    }
+}
+
+/* ==================== MEDIA QUERIES ==================== */
+@media screen and (max-width: 768px) {
+    main .add-course table thead tr th:first-child,
+    main .add-course table thead tr th:last-child { 
+        display: block;
+    }
+
+    main .add-course table tbody tr td:first-child,
+    main .add-course table tbody tr td:last-child {
+        display: block;
+    }
+
+    main .add-course {
+        padding-bottom: 5rem;
+    }
+
+    main .add-course table tbody tr td input {
+        width: 29rem;
+        margin-left: 0;
+    }
+
+    main .add-course table tbody tr td select {
+        width: 29rem;
+        margin-left: 0;
+    }
+}
+
+/* ==================== EDIT COURSE PAGE ==================== */
+.edit-courses {
+    margin-top: 2rem;
+    position: relative;
+}
+
+.edit-courses h2 {
+    margin-bottom: 0.8rem;
+}
+
+.edit-course {
+    background: var(--color-white);
+    width: 100%;
+    border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.2rem;
+}
+
+.edit-course table label {
+    color: var(--color-dark);
+}
+
+.edit-course table input {
+    background: var(--color-background);
+    color: var(--color-dark);
+    padding: 10px;
+    border-radius: var(--card-border-radius);
+    transition: all 300ms ease;
+    width: 40rem;
+    font-size: 1.2rem;
+    margin-bottom: 0.2rem;
+    margin-left: 1rem;
+}
+
+.edit-course table select {
+    background: var(--color-background);
+    color: var(--color-dark);
+    padding: 10px;
+    border-radius: var(--card-border-radius);
+    transition: all 300ms ease;
+    width: 40rem;
+    font-size: 1.2rem;
+    margin-bottom: 0.2rem;
+    margin-left: 1rem;
+}
+
+.edit-course-buttons {
+    position: absolute;
+    bottom: 1rem;
+    right: 4rem;
+}
+
+.edit-course-buttons .update {
+    border: 2px solid var(--color-success);
+    background-color: transparent;
+    color: var(--color-success);
+    width: 5rem;
+    padding: 8px;
+    border-radius: var(--card-border-radius);
+    transition: all 300ms ease;
+    cursor: pointer;
+}
+
+.edit-course-buttons .update:hover {
+    background-color: var(--color-success);
+    color: var(--color-white);
+}
+
+.edit-course-buttons .delete {
+    border: 2px solid var(--color-danger);
+    background-color: transparent;
+    color: var(--color-danger);
+    width: 5rem;
+    padding: 8px;
+    border-radius: var(--card-border-radius);
+    transition: all 300ms ease;
+    cursor: pointer;
+}
+
+.edit-course-buttons .delete:hover {
+    background-color: var(--color-danger);
+    color: var(--color-white);
+}
+
+/* ==================== MEDIA QUERIES ==================== */
+@media screen and (max-width: 1200px) {
+    main .edit-course table thead tr th:first-child,
+    main .edit-course table thead tr th:last-child { 
+        display: table-cell;
+    }
+
+    main .edit-course table tbody tr td:first-child,
+    main .edit-course table tbody tr td:last-child {
+        display: table-cell;
+    }
+
+    main .edit-course {
+        padding-bottom: 5rem;
+    }
+
+    main .edit-course table tbody tr td input {
+        width: 31rem;
+    }
+
+    main .edit-course table tbody tr td select {
+        width: 31rem;
+    }
+
+    .edit-course-buttons {
+        right: 2rem;
+    }
+}
+
+/* ==================== MEDIA QUERIES ==================== */
+@media screen and (max-width: 768px) {
+    main .edit-course table thead tr th:first-child,
+    main .edit-course table thead tr th:last-child { 
+        display: block;
+    }
+
+    main .edit-course table tbody tr td:first-child,
+    main .edit-course table tbody tr td:last-child {
+        display: block;
+    }
+
+    main .edit-course {
+        padding-bottom: 5rem;
+    }
+
+    main .edit-course table tbody tr td input {
+        width: 29rem;
+        margin-left: 0;
+    }
+
+    main .edit-course table tbody tr td select {
+        width: 29rem;
+        margin-left: 0;
+    }
+}
+
+/* ==================== MESSAGES PAGE ==================== */
+.messages-container {
+    display: grid;
+    width: 96%;
+    margin: 0 auto;
+    gap: 1.8rem;
+    grid-template-columns: 14rem auto;
+}
+
+.messages-right {
+    margin-top: 0rem;
+}
+
+.messages-right .top {
+    display: flex;
+    justify-content: end;
+    gap: 2rem;
+}
+
+.messages-right .top button {
+    display: none;
+}
+
+.messages-right .theme-toggler .theme-switch {
+    background: var(--color-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 1.6rem;
+    width: 4.2rem;
+    cursor: pointer;
+    border-radius: var(--border-radius-1);
+}
+
+.messages-right .theme-toggler .theme-switch i {
+    font-size: 1.2rem;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.messages-right .theme-toggler .theme-switch i.active {
+    background: var(--color-primary);
+    color: var(--color-white);
+    border-radius: var(--border-radius-1);
+}
+
+.messages-right .top .profile {
+    display: flex;
+    gap: 2rem;
+    text-align: right;
+}
+
+.messages-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.messages {
+    margin-top: 2rem;
+}
+
+.new-messages {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.new-message {
+    display: block;
+    background: var(--color-white);
+    width: 30%;
+    border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+    margin: 1rem 2rem 2rem 0;
+    align-items: center;
+    font-size: 1.2rem;
+    padding-bottom: 5rem;
+    position: relative;
+}
+
+.new-message:hover {
+    box-shadow: none;
+}
+
+.new-message p {
+    padding: 0.4rem 0;
+}
+
+.messages-buttons {
+    text-align: center;
+    margin-top: 1rem;
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+}
+
+.messages-buttons .read {
+    display: inline-block;
+    border: 2px solid var(--color-warning);
+    background-color: transparent;
+    color: var(--color-warning);
+    padding: 8px;
+    border-radius: var(--card-border-radius);
+    transition: all 300ms ease;
+    cursor: pointer;
+}
+
+.messages-buttons .read:hover {
+    background-color: var(--color-warning);
+    color: var(--color-white);
+}
+
+.messages-buttons .delete {
+    border: 2px solid var(--color-danger);
+    background-color: transparent;
+    color: var(--color-danger);
+    padding: 8px;
+    border-radius: var(--card-border-radius);
+    transition: all 300ms ease;
+    cursor: pointer;
+}
+
+.messages-buttons .delete:hover {
+    background-color: var(--color-danger);
+    color: var(--color-white);
+}
+
+.messages-buttons .opened {
+    display: none;
+    border: 2px solid var(--color-success);
+    background-color: transparent;
+    color: var(--color-success);
+    padding: 8px;
+    border-radius: var(--card-border-radius);
+    transition: all 300ms ease;
+    cursor: pointer;
+}
+
+.messages-buttons .opened:hover {
+    background-color: var(--color-success);
+    color: var(--color-white);
+}
+
+/* ==================== MEDIA QUERIES ==================== */
+@media screen and (max-width: 1200px) {
+    .messages-container {
+        width: 94%;
+        grid-template-columns: 7rem auto;
+    }
+
+    .new-message {
+        width: 45%;
+    }
+}
+
+/* ==================== MEDIA QUERIES ==================== */
+@media screen and (max-width: 768px) {
+    .messages-container {
+        width: 100%;
+        grid-template-columns: 1fr;
+    }
+
+    .messages-container aside {
+        position: fixed;
+        left: -100%;
+        background: var(--color-white);
+        width: 18rem;
+        z-index: 3;
+        box-shadow: 1rem 3rem 4rem var(--color-light);
+        height: 100vh;
+        padding-right: var(--card-padding);
+        /* display: none; */
+        transition: all 300ms ease;
+        /* animation: showMenu 400ms ease forwards; */
+    }
+
+    /* @keyframes showMenu {
+        to {
+            left: 0;
+        }
+    } */
+
+    .messages-container aside .logo {
+        margin-left: 1rem;
+    }
+
+    .messages-container aside .logo h2 {
+        display: inline;
+    }
+
+    .messages-container aside .sidebar h3 {
+        display: inline;
+    }
+
+    .messages-container aside .sidebar a {
+        width: 100%;
+        height: 3.4rem;
+    }
+
+    .messages-container aside .sidebar a:last-child {
+        position: absolute;
+        bottom: 5rem;
+    }
+
+    .messages-container aside .close {
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    .messages-top {
+        width: 94%;
+    }
+
+    .messages-top .top {
+        position: fixed;
+        top: 0;
+        left: 0;
+        align-items: center;
+        padding: 0 0.8rem;
+        height: 4.6rem;
+        background: var(--color-white);
+        width: 100%;
+        margin: 0;
+        z-index: 2;
+        box-shadow: 0 1rem 1rem var(--color-light);
+    }
+
+    .messages-top .top .theme-toggler {
+        width: 4.4rem;
+        position: absolute;
+        left: 66%;
+    }
+
+    .messages-top .profile .info {
+        display: none;
+    }
+
+    .messages-top .top button {
+        display: inline-block;
+        background: transparent;
+        cursor: pointer;
+        color: var(--color-dark);
+        position: absolute;
+        left: 1rem;
+    }
+
+    .messages-top .top button i {
+        font-size: 2rem;
+    }
+
+    .new-message {
+        width: 100%;
+        margin-right: 0;
+    }
+}
+
+/* ==================== LOG IN PAGE ==================== */
+.theme-container {
+    display: none;
+}
+
+.log-top {
+    padding-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.log-top h1 {
+    font-size: 2rem;
+}
+
+.log-top .logo {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.log-top .logo h2 {
+    font-size: 3rem;
+}
+
+.log-top .logo img {
+    width: 5rem;
+    height: 5rem;
+}
+
+.log-box {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 5rem;
+}
+
+.log-container {
+    background: var(--color-white);
+    border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.log-container .fa-user-check {
+    color: var(--color-primary);
+    font-size: 3rem;
+}
+
+.log-container table label {
+    color: var(--color-dark);
+}
+
+.log-container table input {
+    background: var(--color-background);
+    color: var(--color-dark);
+    padding: 10px;
+    border-radius: var(--card-border-radius);
+    transition: all 300ms ease;
+    width: 40rem;
+    font-size: 1.2rem;
+    margin-bottom: 0.2rem;
+    margin-left: 1rem;
+}
+
+.LogIn {
+    border: 2px solid var(--color-primary);
+    background-color: transparent;
+    color: var(--color-primary);
+    width: 10rem;
+    padding: 8px;
+    margin-top: 1rem;
+    border-radius: var(--card-border-radius);
+    transition: all 300ms ease;
+    cursor: pointer;
+}
+
+.LogIn:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.log-container p {
+    margin-top: 1rem;
+}
+
+.log-container p span {
+    color: var(--color-primary);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.sign-box {
+    display: none;
+}
+
+.sign-bg {
+    background-color: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.sign-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sign-card {
+    font-size: 1.2rem;
+    background: var(--color-white);
+    border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+    margin: 2rem 0;
+    position: fixed;
+    top: 8.5rem;
+    text-align: center;
+}
+
+.sign-card h1 {
+    margin-bottom: 2rem;
+}
+
+.sign-container table label {
+    color: var(--color-dark);
+}
+
+.sign-container table input {
+    background: var(--color-background);
+    color: var(--color-dark);
+    padding: 10px;
+    border-radius: var(--card-border-radius);
+    transition: all 300ms ease;
+    width: 40rem;
+    font-size: 1.2rem;
+    margin-bottom: 0.2rem;
+    margin-left: 1rem;
+}
+
+.signIn {
+    border: 2px solid var(--color-primary);
+    background-color: transparent;
+    color: var(--color-primary);
+    width: 10rem;
+    padding: 8px;
+    margin-top: 1rem;
+    border-radius: var(--card-border-radius);
+    transition: all 300ms ease;
+    cursor: pointer;
+}
+
+.signIn:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.sign-container p {
+    margin-top: 1rem;
+}
+
+.sign-container p span {
+    color: var(--color-primary);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.error-message{
+    color: var(--color-danger);
+    margin-left: 2rem;
+}
+
+/* ==================== MEDIA QUERIES ==================== */
+@media screen and (max-width: 768px) {
+    .log-container table input {
+        width: 23rem;
+    }
+
+    .sign-container table input {
+        width: 23rem;
+    }
+}

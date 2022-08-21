@@ -1,0 +1,295 @@
+<html>
+    <head>
+        <!-- Stylesheet -->
+        <link rel="stylesheet" href="css/style.css">
+        <!-- Icons -->
+        <link rel="stylesheet" href="css/all.min.css">
+    </head>
+    <body>
+        <div class="container">
+            <aside>
+                <div class="top">
+                    <div class="logo">
+                        <img src="images/logo.png" alt="logo">
+                        <h2>EDU<span class="danger">CATION</span></h2>
+                    </div>
+                    <div class="close" id="close-btn">
+                        <i class="fa-solid fa-xmark"></i>
+                    </div>
+                </div>
+                <div class="sidebar">
+                    <a href="index.html" class="active"><i class="fa-solid fa-border-all"></i><h3>Dashboard</h3></a>
+                    <a href="students.html"><i class="fa-solid fa-user-graduate"></i><h3>Students</h3></a>
+                    <a href="teachers.html"><i class="fa-solid fa-user-tie"></i><h3>Teachers</h3></a>
+                    <a href="courses.html"><i class="fa-solid fa-book"></i><h3>Courses</h3></a>
+                    <a href="messages.html"><i class="fa-solid fa-envelope"></i><h3>Messages</h3></a>
+                    <a href="addStudent.html"><i class="fa-solid fa-plus"></i><h3>Add Student</h3></a>
+                    <a href="logOut.html"><i class="fa-solid fa-arrow-right-from-bracket"></i><h3>Log out</h3></a>
+                </div>
+            </aside>
+            <!-- -------------------- END OF ASIDE -------------------- -->
+            <main>
+                <h1>Dashboard</h1>
+                <div class="insights">
+                    <div class="students">
+                        <div class="icon">
+                            <i class="fa-solid fa-chart-simple"></i>
+                        </div>
+                        <div class="middle">
+                            <div class="left">
+                                <h3>Total Students</h3>
+                                <h1>5,024</h1>
+                            </div>
+                            <div class="progress">
+                                <svg>
+                                    <circle cx='38' cy='38' r='36'></circle>
+                                </svg>
+                                <div class="number">
+                                    <p>85%</p>
+                                </div>
+                            </div>
+                        </div>
+                        <small class="text-muted">Active</small>
+                    </div>
+                    <!-- -------------------- END OF STUDENTS -------------------- -->
+                    <div class="teachers">
+                        <div class="icon">
+                            <i class="fa-solid fa-chart-bar"></i>
+                        </div>
+                        <div class="middle">
+                            <div class="left">
+                                <h3>Total Teachers</h3>
+                                <h1>122</h1>
+                            </div>
+                            <div class="progress">
+                                <svg>
+                                    <circle cx='38' cy='38' r='36'></circle>
+                                </svg>
+                                <div class="number">
+                                    <p>62%</p>
+                                </div>
+                            </div>
+                        </div>
+                        <small class="text-muted">Active</small>
+                    </div>
+                    <!-- -------------------- END OF TEACHERS -------------------- -->
+                    <div class="courses">
+                        <div class="icon">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+                        <div class="middle">
+                            <div class="left">
+                                <h3>Total Courses</h3>
+                                <h1>65</h1>
+                            </div>
+                            <div class="progress">
+                                <svg>
+                                    <circle cx='38' cy='38' r='36'></circle>
+                                </svg>
+                                <div class="number">
+                                    <p>44%</p>
+                                </div>
+                            </div>
+                        </div>
+                        <small class="text-muted">Active</small>
+                    </div>
+                    <!-- -------------------- END OF COURSES -------------------- -->
+                </div>
+                <!-- -------------------- END OF INSIGHTS -------------------- -->
+                <div class="recent-students">
+                    <h2>Recent Registered Students</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Student Name</th>
+                                <th>Student ID</th>
+                                <th>Department</th>
+                                <th>Status</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Edie Katrina Basil Xzavier</td>
+                                <td>2021001</td>
+                                <td>DS</td>
+                                <td class="success">Active</td>
+                                <td onclick="openDetails()" class="primary details-btn">Details</td>
+                            </tr>
+                            <tr>
+                                <td>Edie Katrina Basil Xzavier</td>
+                                <td>2021001</td>
+                                <td>DS</td>
+                                <td class="success">Active</td>
+                                <td onclick="openDetails()" class="primary details-btn">Details</td>
+                            </tr>
+                            <tr>
+                                <td>Edie Katrina Basil Xzavier</td>
+                                <td>2021001</td>
+                                <td>DS</td>
+                                <td class="danger">Inactive</td>
+                                <td onclick="openDetails()" class="primary details-btn">Details</td>
+                            </tr>
+                            <tr>
+                                <td>Edie Katrina Basil Xzavier</td>
+                                <td>2021001</td>
+                                <td>DS</td>
+                                <td class="success">Active</td>
+                                <td onclick="openDetails()" class="primary details-btn">Details</td>
+                            </tr>
+                            <tr>
+                                <td>Edie Katrina Basil Xzavier</td>
+                                <td>2021001</td>
+                                <td>DS</td>
+                                <td class="danger">Inactive</td>
+                                <td onclick="openDetails()" class="primary details-btn">Details</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <a href="students.html" class="show-all">Show All</a>
+                </div>
+            </main>
+            <!-- -------------------- END OF MAIN -------------------- -->
+            <div class="right">
+                <div class="top">
+                    <button id="menu-btn"><i class="fa-solid fa-bars"></i></button>
+                    <div class="theme-toggler">
+                        <label class="theme-switch" for="checkbox">
+                            <input type="checkbox" id="checkbox"/>
+                            <i class="fa-solid fa-sun active"></i>
+                            <i class="fa-solid fa-moon"></i>
+                        </label>
+                    </div>
+                    <div class="profile">
+                        <div class="info">
+                            <p>Hey, <b>Ahmed</b></p>
+                            <small class="text-muted">Admin</small>
+                        </div>
+                        <div class="profile-photo">
+                            <img src="images/profile-1.jpg" alt="profile-photo">
+                        </div>
+                    </div>
+                </div>
+                <!-- -------------------- END OF TOP -------------------- -->
+                <div class="recent-updates">
+                    <h2>Recent Updates</h2>
+                    <div class="updates">
+                        <div class="update">
+                            <div class="profile-photo">
+                                <img src="images/profile-2.jpg" alt="profile-photo">
+                            </div>
+                            <div class="message">
+                                <p><b>Mike Tyson</b> requested to change Software course time.</p>
+                                <small class="text-muted">2 Minutes Ago</small>
+                            </div>
+                        </div>
+                        <div class="update">
+                            <div class="profile-photo">
+                                <img src="images/profile-3.jpg" alt="profile-photo">
+                            </div>
+                            <div class="message">
+                                <p><b>Diana Ayi</b> requested to change her schedule.</p>
+                                <small class="text-muted">5 Minutes Ago</small>
+                            </div>
+                        </div>
+                        <div class="update">
+                            <div class="profile-photo">
+                                <img src="images/profile-4.jpg" alt="profile-photo">
+                            </div>
+                            <div class="message">
+                                <p><b>Mandy Roy</b> requested to check her GPA.</p>
+                                <small class="text-muted">6 Minutes Ago</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- -------------------- END OF TOP -------------------- -->
+                <div class="courses-analytics">
+                    <h2>Courses Analytics</h2>
+                    <!-- <div class="course up">
+                        <div class="icon">
+                            <i class="fa-solid fa-arrow-trend-up"></i>
+                        </div>
+                        <div class="right">
+                            <div class="info">
+                                <h3>SOFTWARE ENGINEERING</h3>
+                                <small class="text-muted">Last 24 Hours</small>
+                            </div>
+                            <h5 class="success">+36%</h5>
+                            <h3>1037</h3>
+                        </div>
+                    </div> -->
+                    <div class="course down">
+                        <div class="icon">
+                            <i class="fa-solid fa-arrow-trend-down"></i>
+                        </div>
+                        <div class="right">
+                            <div class="info">
+                                <h3>DATABASE SYSTEM</h3>
+                                <small class="text-muted">Last 24 Hours</small>
+                            </div>
+                            <h5 class="danger">-13%</h5>
+                            <h3>965</h3>
+                        </div>
+                    </div>
+                    <div class="course up">
+                        <div class="icon">
+                            <i class="fa-solid fa-arrow-trend-up"></i>
+                        </div>
+                        <div class="right">
+                            <div class="info">
+                                <h3>WEB TECHNOLOGY</h3>
+                                <small class="text-muted">Last 24 Hours</small>
+                            </div>
+                            <h5 class="success">+48%</h5>
+                            <h3>1162</h3>
+                        </div>
+                    </div>
+                    <div class="course add-course">
+                        <i class="fa-solid fa-plus"></i>
+                        <h3><a href="addCourse.html">Add Course</a></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="details-boxx">
+            <div class="details-bg"></div>
+            <div class="details-container">
+                <div class="details-card">
+                    <div class="details-top">
+                        <h1>Student Details</h1>
+                        <div id="closeDetails">
+                            <a href="index.html"><i class="fa-solid fa-xmark"></i></a>
+                        </div>
+                    </div>
+                    <div class="details">
+                        <div class="student-photo">
+                            <img src="images/student1.webp" alt="">
+                        </div>
+                        <div class="student-details">
+                            <div class="details-head">
+                                <h2>Edie Katrina Basil Xzavier</h2>
+                                <button class="edit-btn"><a href="editStudent.html"><i class="fa-solid fa-pen-to-square"></i> Edit Student</a></button>
+                            </div>
+                            <p><b>ID:</b> 2021001</p>
+                            <p><b>Mail:</b> E.Katrina@mail.com</p>
+                            <p><b>Birth Date:</b> 10/10/2000</p>
+                            <p><b>Gender:</b> Male</p>
+                            <p><b>Phone:</b> 01122334455</p>
+                            <p><b>City:</b> Cairo</p>
+                            <p><b>Address:</b> 12 Dokki St.</p>
+                            <p><b>Status:</b> Active</p>
+                            <p><b>GPA:</b> 2.35</p>
+                            <p><b>Credit Hours:</b> 42 hour</p>
+                            <p><b>Department:</b> DS</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- -------------------- END OF DETAILS -------------------- -->
+
+        <!-- -------------------- SCRIPTS -------------------- -->
+        <script src="js/script.js"></script>
+    </body>
+</html>
